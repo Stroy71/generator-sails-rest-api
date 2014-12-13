@@ -1,7 +1,6 @@
-'use strict';
-var yeoman = require('yeoman-generator');
-var chalk = require('chalk');
-var yosay = require('yosay');
+var yeoman = require('yeoman-generator'),
+    chalk = require('chalk'),
+    yosay = require('yosay');
 
 module.exports = yeoman.generators.Base.extend({
     initializing: function () {
@@ -11,48 +10,54 @@ module.exports = yeoman.generators.Base.extend({
     prompting: function () {
         var done = this.async();
 
-        // Have Yeoman greet the user.
         this.log(yosay(
-            'Welcome to the laudable' + chalk.red('SailsRestApi') + ' generator!'
+            'Welcome to the laudable ' + chalk.red('Sails REST API') + ' generator!'
         ));
 
         var prompts = [{
-            type: 'confirm',
-            name: 'someOption',
-            message: 'Would you like to enable this option?',
-            default: true
+            type: 'input',
+            name: 'name',
+            message: 'Type your project name',
+            default: this.appname
+        }, {
+            type: 'checkbox',
+            name: 'authorization',
+            message: 'Select auth methods',
+            choices: [
+                'Facebook',
+                'Twitter'
+            ],
+            default: [
+                'Facebook',
+                'Twitter'
+            ]
         }];
 
-        this.prompt(prompts, function (props) {
-            this.someOption = props.someOption;
-
+        this.prompt(prompts, function (answers) {
+            this.log(answers);
             done();
         }.bind(this));
     },
 
-    writing: {
-        app: function () {
-            this.fs.copy(
-                this.templatePath('_package.json'),
-                this.destinationPath('package.json')
-            );
-        },
+    configuring: function () {
+        this.log('configuring');
+    },
 
-        projectfiles: function () {
-            this.fs.copy(
-                this.templatePath('editorconfig'),
-                this.destinationPath('.editorconfig')
-            );
-            this.fs.copy(
-                this.templatePath('jshintrc'),
-                this.destinationPath('.jshintrc')
-            );
-        }
+    writing: function () {
+        this.log('writing');
+    },
+
+    conflicts: function () {
+        this.log('conflicts');
     },
 
     install: function () {
         this.installDependencies({
             skipInstall: this.options['skip-install']
         });
+    },
+
+    end: function () {
+        this.log('end');
     }
 });

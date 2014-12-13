@@ -1,9 +1,7 @@
-'use strict';
-
-var path = require('path');
-var assert = require('yeoman-generator').assert;
-var helpers = require('yeoman-generator').test;
-var os = require('os');
+var path = require('path'),
+    assert = require('yeoman-generator').assert,
+    helpers = require('yeoman-generator').test,
+    os = require('os');
 
 describe('sails-rest-api:app', function () {
     before(function (done) {
@@ -18,7 +16,6 @@ describe('sails-rest-api:app', function () {
 
     it('creates files', function () {
         assert.file([
-            'bower.json',
             'package.json',
             '.editorconfig',
             '.jshintrc'
