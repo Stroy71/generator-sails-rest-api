@@ -3,7 +3,13 @@
     "version": "0.1.0",
     "description": "Yeoman generator for scaffolding Sails REST API with predefined features",
     "keywords": [
-        "yeoman-generator"
+        "yeoman-generator",
+        "yeoman",
+        "generator",
+        "boilerplate",
+        "sails",
+        "rest",
+        "api"
     ],
     "homepage": "https://github.com/ghaiklor/generator-sails-rest-api",
     "bugs": {
