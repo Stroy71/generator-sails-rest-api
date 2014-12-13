@@ -1,0 +1,26 @@
+{
+    "name": "generator-sails-rest-api",
+    "version": "0.1.0",
+    "description": "Yeoman generator for scaffolding Sails REST API with predefined features",
+    "keywords": [
+        "yeoman-generator"
+    ],
+    "homepage": "https://github.com/ghaiklor/generator-sails-rest-api",
+    "bugs": {
+        "url": "https://github.com/ghaiklor/generator-sails-rest-api/issues"
+    },
+    "license": "MIT",
+    "author": {
+        "name": "Eugene Obrezkov",
+        "email": "ghaiklor@gmail.com",
+        "url": "https://www.facebook.com/ghaiklor"
+    },
+    "contributors": [],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ghaiklor/generator-sails-rest-api.git"
+    },
+    "dependencies": {
+        "yeoman-generator": "^0.18.4"
+    }
+}
