@@ -16,20 +16,48 @@ module.exports = yeoman.generators.Base.extend({
 
         var prompts = [{
             type: 'input',
-            name: 'name',
-            message: 'Type your project name',
-            default: this.appname
+            name: 'project-name',
+            message: 'Type project name',
+            default: 'sails-rest-api'
+        }, {
+            type: 'input',
+            name: 'database-name',
+            message: 'Type database name',
+            default: 'sails-rest-api'
+        }, {
+            type: 'list',
+            name: 'database-adapter',
+            message: 'Choose database adapter',
+            choices: [
+                'PostgreSQL',
+                'MySQL',
+                'MongoDB',
+                'Redis',
+                'Memory',
+                'Disk'
+            ],
+            default: 2
+        }, {
+            type: 'confirm',
+            name: 'private-api',
+            message: 'Allow requests to API for anybody?',
+            default: false
+        }, {
+            type: 'confirm',
+            name: 'jwt',
+            message: 'Do you want to use JSON Web Token strategy?',
+            default: true
         }, {
             type: 'checkbox',
-            name: 'authorization',
-            message: 'Select auth methods',
+            name: 'login-methods',
+            message: "Choose user's login methods",
             choices: [
+                'Local',
                 'Facebook',
                 'Twitter'
             ],
             default: [
-                'Facebook',
-                'Twitter'
+                'Local'
             ]
         }];
 
