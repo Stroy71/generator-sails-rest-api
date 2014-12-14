@@ -22,7 +22,7 @@ module.exports.blueprints = {
     /**
      * An optional mount path for all blueprint routes on a controller, including `rest`, `actions`, and `shortcuts`
      */
-    prefix: '',
+    prefix: '/v1',
 
     /**
      * Whether to pluralize controller names in blueprint routes
@@ -37,10 +37,10 @@ module.exports.blueprints = {
     /**
      * Whether to run Model.watch() in the find and findOne blueprint actions
      */
-    autoWatch: true,
+    autoWatch: false,
 
     /**
      * The default number of records to show in the response from a "find" action
      */
-    defaultLimit: 30
+    defaultLimit: 5
 };

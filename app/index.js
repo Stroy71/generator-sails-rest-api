@@ -9,17 +9,17 @@ var yeoman = require('yeoman-generator'),
  */
 var QUESTIONS_LIST = [{
     type: 'input',
-    name: 'project-name',
+    name: 'projectName',
     message: 'Type your project name',
     default: 'sails-rest-api'
 }, {
     type: 'input',
-    name: 'database-name',
+    name: 'databaseName',
     message: 'Type your database name',
     default: 'sails-rest-api'
 }, {
     type: 'list',
-    name: 'database-adapter',
+    name: 'databaseAdapter',
     message: 'Choose database adapter',
     choices: [
         'PostgreSQL',
@@ -32,17 +32,17 @@ var QUESTIONS_LIST = [{
     default: 2
 }, {
     type: 'confirm',
-    name: 'public-api',
+    name: 'isPublicApi',
     message: 'Allow public requests to API? ',
     default: false
 }, {
     type: 'confirm',
-    name: 'jwt-auth',
+    name: 'isJwtAuth',
     message: 'Do you want to use JSON Web Token strategy?',
     default: true
 }, {
     type: 'checkbox',
-    name: 'auth-methods',
+    name: 'authMethods',
     message: "Choose user's login methods",
     choices: [
         'Local',
@@ -81,22 +81,27 @@ module.exports = yeoman.generators.Base.extend({
         this.log(yosay('Welcome to the laudable ' + chalk.red('Sails REST API') + ' generator!'));
 
         this.prompt(QUESTIONS_LIST, function (answers) {
-            // TODO: implement
-            this.log(answers);
+            this.answersList = answers;
             done();
         }.bind(this));
     },
 
     configuring: function () {
-        this.log('configuring');
+        // TODO: maybe implement
     },
 
-    writing: function () {
-        this.log('writing');
+    writing: {
+        package: function () {
+            this.fs.copyTpl(
+                this.templatePath('package.json'),
+                this.destinationPath('package.json'),
+                this.answersList
+            )
+        }
     },
 
     conflicts: function () {
-        this.log('conflicts');
+        // TODO: maybe implement
     },
 
     install: function () {
@@ -106,6 +111,6 @@ module.exports = yeoman.generators.Base.extend({
     },
 
     end: function () {
-        this.log('end');
+        // TODO: maybe implement
     }
 });
