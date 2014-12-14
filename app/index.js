@@ -62,9 +62,10 @@ module.exports = yeoman.generators.Base.extend({
     prompting: function () {
         var done = this.async();
 
-        this.log(yosay(['Welcome to the laudable', chalk.red('Sails REST API'), 'generator!'].join(' ')));
+        this.log(yosay('Welcome to the laudable ' + chalk.red('Sails REST API') + ' generator!'));
 
         this.prompt(QUESTIONS_LIST, function (answers) {
+            // TODO: implement
             this.log(answers);
             done();
         }.bind(this));
