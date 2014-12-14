@@ -2,6 +2,58 @@ var yeoman = require('yeoman-generator'),
     chalk = require('chalk'),
     yosay = require('yosay');
 
+/**
+ * List of questions
+ * @type {Array}
+ * @private
+ */
+var QUESTIONS_LIST = [{
+    type: 'input',
+    name: 'project-name',
+    message: 'Type project name',
+    default: 'sails-rest-api'
+}, {
+    type: 'input',
+    name: 'database-name',
+    message: 'Type database name',
+    default: 'sails-rest-api'
+}, {
+    type: 'list',
+    name: 'database-adapter',
+    message: 'Choose database adapter',
+    choices: [
+        'PostgreSQL',
+        'MySQL',
+        'MongoDB',
+        'Redis',
+        'Memory',
+        'Disk'
+    ],
+    default: 2
+}, {
+    type: 'confirm',
+    name: 'private-api',
+    message: 'Allow requests to API for anybody?',
+    default: false
+}, {
+    type: 'confirm',
+    name: 'jwt',
+    message: 'Do you want to use JSON Web Token strategy?',
+    default: true
+}, {
+    type: 'checkbox',
+    name: 'login-methods',
+    message: "Choose user's login methods",
+    choices: [
+        'Local',
+        'Facebook',
+        'Twitter'
+    ],
+    default: [
+        'Local'
+    ]
+}];
+
 module.exports = yeoman.generators.Base.extend({
     initializing: function () {
         this.pkg = require('../package.json');
@@ -10,58 +62,9 @@ module.exports = yeoman.generators.Base.extend({
     prompting: function () {
         var done = this.async();
 
-        this.log(yosay(
-            'Welcome to the laudable ' + chalk.red('Sails REST API') + ' generator!'
-        ));
+        this.log(yosay(['Welcome to the laudable', chalk.red('Sails REST API'), 'generator!'].join(' ')));
 
-        var prompts = [{
-            type: 'input',
-            name: 'project-name',
-            message: 'Type project name',
-            default: 'sails-rest-api'
-        }, {
-            type: 'input',
-            name: 'database-name',
-            message: 'Type database name',
-            default: 'sails-rest-api'
-        }, {
-            type: 'list',
-            name: 'database-adapter',
-            message: 'Choose database adapter',
-            choices: [
-                'PostgreSQL',
-                'MySQL',
-                'MongoDB',
-                'Redis',
-                'Memory',
-                'Disk'
-            ],
-            default: 2
-        }, {
-            type: 'confirm',
-            name: 'private-api',
-            message: 'Allow requests to API for anybody?',
-            default: false
-        }, {
-            type: 'confirm',
-            name: 'jwt',
-            message: 'Do you want to use JSON Web Token strategy?',
-            default: true
-        }, {
-            type: 'checkbox',
-            name: 'login-methods',
-            message: "Choose user's login methods",
-            choices: [
-                'Local',
-                'Facebook',
-                'Twitter'
-            ],
-            default: [
-                'Local'
-            ]
-        }];
-
-        this.prompt(prompts, function (answers) {
+        this.prompt(QUESTIONS_LIST, function (answers) {
             this.log(answers);
             done();
         }.bind(this));
