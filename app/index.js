@@ -10,12 +10,12 @@ var yeoman = require('yeoman-generator'),
 var QUESTIONS_LIST = [{
     type: 'input',
     name: 'project-name',
-    message: 'Type project name',
+    message: 'Type your project name',
     default: 'sails-rest-api'
 }, {
     type: 'input',
     name: 'database-name',
-    message: 'Type database name',
+    message: 'Type your database name',
     default: 'sails-rest-api'
 }, {
     type: 'list',
@@ -32,22 +32,38 @@ var QUESTIONS_LIST = [{
     default: 2
 }, {
     type: 'confirm',
-    name: 'private-api',
-    message: 'Allow requests to API for anybody?',
+    name: 'public-api',
+    message: 'Allow public requests to API? ',
     default: false
 }, {
     type: 'confirm',
-    name: 'jwt',
+    name: 'jwt-auth',
     message: 'Do you want to use JSON Web Token strategy?',
     default: true
 }, {
     type: 'checkbox',
-    name: 'login-methods',
+    name: 'auth-methods',
     message: "Choose user's login methods",
     choices: [
         'Local',
         'Facebook',
-        'Twitter'
+        'Twitter',
+        'Bitbucket',
+        'Dropbox',
+        'Flickr',
+        'Foursquare',
+        'GitHub',
+        'Google',
+        'Instagram',
+        'LinkedIn',
+        'Mail.Ru',
+        'oDesk',
+        'reddit',
+        'Steam',
+        'Stripe',
+        'Trello',
+        'Twitch',
+        'VKontakte'
     ],
     default: [
         'Local'
