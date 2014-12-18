@@ -13,9 +13,11 @@ describe('sails-rest-api:app', function () {
 
     it('creates files', function () {
         assert.file([
-            'package.json',
             '.editorconfig',
-            '.jshintrc'
+            '.gitignore',
+            '.sailsrc',
+            'app.js',
+            'package.json'
         ]);
     });
 });

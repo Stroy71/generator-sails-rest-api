@@ -12,62 +12,6 @@ var QUESTIONS_LIST = [{
     name: 'projectName',
     message: 'Type your project name',
     default: 'sails-rest-api'
-}, {
-    type: 'input',
-    name: 'databaseName',
-    message: 'Type your database name',
-    default: 'sails-rest-api'
-}, {
-    type: 'list',
-    name: 'databaseAdapter',
-    message: 'Choose database adapter',
-    choices: [
-        'PostgreSQL',
-        'MySQL',
-        'MongoDB',
-        'Redis',
-        'Memory',
-        'Disk'
-    ],
-    default: 2
-}, {
-    type: 'confirm',
-    name: 'isPublicApi',
-    message: 'Allow public requests to API? ',
-    default: false
-}, {
-    type: 'confirm',
-    name: 'isJwtAuth',
-    message: 'Do you want to use JSON Web Token strategy?',
-    default: true
-}, {
-    type: 'checkbox',
-    name: 'authMethods',
-    message: "Choose user's login methods",
-    choices: [
-        'Local',
-        'Facebook',
-        'Twitter',
-        'Bitbucket',
-        'Dropbox',
-        'Flickr',
-        'Foursquare',
-        'GitHub',
-        'Google',
-        'Instagram',
-        'LinkedIn',
-        'Mail.Ru',
-        'oDesk',
-        'reddit',
-        'Steam',
-        'Stripe',
-        'Trello',
-        'Twitch',
-        'VKontakte'
-    ],
-    default: [
-        'Local'
-    ]
 }];
 
 module.exports = yeoman.generators.Base.extend({
@@ -81,7 +25,7 @@ module.exports = yeoman.generators.Base.extend({
         this.log(yosay('Welcome to the laudable ' + chalk.red('Sails REST API') + ' generator!'));
 
         this.prompt(QUESTIONS_LIST, function (answers) {
-            this.answersList = answers;
+            this.answers = answers;
             done();
         }.bind(this));
     },
@@ -90,14 +34,11 @@ module.exports = yeoman.generators.Base.extend({
         // TODO: maybe implement
     },
 
-    writing: {
-        package: function () {
-            this.fs.copyTpl(
-                this.templatePath('package.json'),
-                this.destinationPath('package.json'),
-                this.answersList
-            )
-        }
+    writing: function () {
+        this.directory(
+            this.sourceRoot(),
+            this.destinationRoot()
+        )
     },
 
     conflicts: function () {

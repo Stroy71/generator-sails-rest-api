@@ -1,11 +1,8 @@
 /**
  * isAllowed
- *
- * @module      :: Policy
- * @description :: Simple policy to check application token in headers
+ * @description :: Policy to check if this request can be processed
  */
 
 module.exports = function (req, res, next) {
-    // TODO: implement
     next();
 };
