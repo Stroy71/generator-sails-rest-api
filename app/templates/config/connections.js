@@ -3,11 +3,11 @@
  */
 
 module.exports.connections = {
-    localDiskDb: {
+    local: {
         adapter: 'sails-disk'
     },
 
-    someMysqlServer: {
+    mysql: {
         adapter: 'sails-mysql',
         host: 'YOUR_MYSQL_SERVER_HOSTNAME_OR_IP_ADDRESS',
         user: 'YOUR_MYSQL_USER',
@@ -15,7 +15,7 @@ module.exports.connections = {
         database: 'YOUR_MYSQL_DB'
     },
 
-    someMongodbServer: {
+    mongo: {
         adapter: 'sails-mongo',
         host: 'localhost',
         port: 27017
@@ -24,7 +24,7 @@ module.exports.connections = {
         // database: 'your_mongo_db_name_here'
     },
 
-    somePostgresqlServer: {
+    postgresql: {
         adapter: 'sails-postgresql',
         host: 'YOUR_POSTGRES_SERVER_HOSTNAME_OR_IP_ADDRESS',
         user: 'YOUR_POSTGRES_USER',
