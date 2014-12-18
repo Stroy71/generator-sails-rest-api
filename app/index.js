@@ -12,11 +12,6 @@ var QUESTIONS_LIST = [{
     name: 'projectName',
     message: 'Type your project name',
     default: 'sails-rest-api'
-}, {
-    type: 'input',
-    name: 'databaseName',
-    message: 'Type your database name',
-    default: 'sails-rest-api'
 }];
 
 module.exports = yeoman.generators.Base.extend({
@@ -42,8 +37,7 @@ module.exports = yeoman.generators.Base.extend({
     writing: function () {
         this.directory(
             this.sourceRoot(),
-            this.destinationRoot(),
-            this.answers
+            this.destinationRoot()
         )
     },
 
