@@ -1,6 +1,8 @@
 Version 0.2.0
 ===
 
+- Add basic User model;
+- Add Basic Auth, Auth Factory, bcrypt auth services;
 - Automatic installing npm dependencies;
 - Add questions for database name, user, password and adapter;
 - Add in connections config all supported adapters;
