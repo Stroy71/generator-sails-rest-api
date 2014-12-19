@@ -1,6 +1,6 @@
 {
   "generators": {
-    "modules": {}
+      "modules": {}
   },
   "hooks": {
       "cors": false,

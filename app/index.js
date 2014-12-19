@@ -12,6 +12,37 @@ var QUESTIONS_LIST = [{
     name: 'projectName',
     message: 'Type your project name',
     default: 'sails-rest-api'
+}, {
+    type: 'list',
+    name: 'databaseAdapter',
+    message: 'Choose database adapter',
+    choices: [
+        'MySQL',
+        'Mongo',
+        'PostgreSQL',
+        'Redis'
+    ],
+    default: 1
+}, {
+    type: 'input',
+    name: 'databaseHost',
+    message: 'Type your database host',
+    default: 'localhost'
+}, {
+    type: 'input',
+    name: 'databaseName',
+    message: 'Type your database name',
+    default: 'sails-rest-api'
+}, {
+    type: 'input',
+    name: 'databaseUser',
+    message: 'Type database username (if need)',
+    default: ''
+}, {
+    type: 'password',
+    name: 'databasePassword',
+    message: 'Type database password (if need)',
+    default: ''
 }];
 
 module.exports = yeoman.generators.Base.extend({
@@ -46,9 +77,7 @@ module.exports = yeoman.generators.Base.extend({
     },
 
     install: function () {
-        this.installDependencies({
-            skipInstall: this.options['skip-install']
-        });
+        this.spawnCommand('npm', ['install']);
     },
 
     end: function () {

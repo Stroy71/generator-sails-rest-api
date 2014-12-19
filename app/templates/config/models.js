@@ -6,7 +6,7 @@ module.exports.models = {
     /**
      * Your app's default connection
      */
-    connection: 'mongo',
+    connection: '<%= answers.databaseAdapter.toLowerCase() %>',
 
     /**
      * How and whether Sails will attempt to automatically rebuild the tables/collections/etc. in your schema
